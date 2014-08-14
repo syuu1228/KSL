@@ -6,11 +6,7 @@
   The MIT LICENSE http://opensource.org/licenses/MIT
 =end
 
-unless ARGV[0] == "test"
-  $KSL_INSTALLED_PATH = "/ROOTFS/KSL"
-else
-  $KSL_INSTALLED_PATH = "."
-end
+$KSL_INSTALLED_PATH = "."
 require "find"
 require "readline"
 require_relative "#{$KSL_INSTALLED_PATH}/src/parser.rb"
@@ -54,7 +50,7 @@ class MainFunctions
 		Readline.completion_proc = proc{|word|
 			commands.grep(/\A#{Regexp.quote word}/)
 		}
-		input = Readline.readline("\r\e[#{$pc_user_color}m#{uname}@#{pcname} \e[31m[KSL]\e[0m \e[1m#{path}\e[0m #{@kernel.prompt}",true)
+		input = Readline.readline("\r\e[#{$pc_user_color}m@#{pcname} \e[31m[KSL]\e[0m \e[1m#{path}\e[0m #{@kernel.prompt}",true)
 
 		@shellstack << input
 		@parser.parser(input)

@@ -8,7 +8,7 @@ class CommandParser
 		line = cmdstr.split(" ")
 		
 		2.times{|i|
-			line[i].gsub!("~/","/home/#{ENV["USER"]}/")	if line[i] =~ /~\//
+			line[i].gsub!("~/","/")	if line[i] =~ /~\//
 		}
 		case line[0]
 			when /help/

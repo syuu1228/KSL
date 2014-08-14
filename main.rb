@@ -37,11 +37,7 @@ class MainFunctions
 	def ShellLine(loop_count,error)
 		path   = Dir.pwd
     pcname = "OSv"
-		uname  = ENV["USER"]
-
-		if path =~ /\/home\/#{uname}/
-			path.gsub!("/home/#{uname}","~")
-		end
+                path = "/"
 		unless error == 0
 			print "#{error} "
 		end

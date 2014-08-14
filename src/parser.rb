@@ -11,6 +11,8 @@ class CommandParser
 			line[i].gsub!("~/","/")	if line[i] =~ /~\//
 		}
 		case line[0]
+                        when /dir/
+                                p Dir::entries(".")
 			when /help/
 				@kernel.help
 			when /exit/
